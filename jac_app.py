@@ -3,14 +3,13 @@ import pandas as pd
 import plotly.express as px
 
 
-st.header('Hola Mundo StreamLit 🌎!, con el Poder de Python')
+st.header('Bienevendidos a  🌎 de StreamLit, con el Poder de Python')
 if st.button('Globos?'):
     st.balloons()
 
-import plotly.express as px
 
 # Título de la aplicación
-st.title('Gráficos Interactivos con Plotly y Streamlit')
+st.title('Gráficos con Plotly y Streamlit')
 
 # Leer el archivo .DAT
 file_path = 'S_REG005.DAT'
@@ -19,7 +18,7 @@ file_path = 'S_REG005.DAT'
 df = pd.read_csv(file_path, delimiter=':')
 
 # Mostrar los datos del DataFrame
-st.write("Datos del archivo S_REG005.DAT:")
+st.write("Datos del una caja  S_REG005.DAT  18 de Mayo 2024:")
 st.write(df)
 
 # Seleccionar columnas para el gráfico
