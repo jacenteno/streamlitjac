@@ -1,25 +1,33 @@
 import streamlit as st
+import pandas as pd
+import plotly.express as px
+
 
 st.header('Hola Mundo StreamLit 🌎!, con el Poder de Python')
 if st.button('Globos?'):
     st.balloons()
 
-# Leer el archivo
-file_path = 'S_RE005.DAT'
-with open(file_path, 'r') as file:
-    lines = file.readlines()
+import plotly.express as px
 
-# Procesar el contenido del archivo
-data = []
-for line in lines:
-    parts = line.strip().split(':')
-    if len(parts) == 7:
-        code, description, group, val1, val2, val3, val4 = parts
-        data.append([code, description, group, val1, val2, val3, val4])
+# Título de la aplicación
+st.title('Gráficos Interactivos con Plotly y Streamlit')
 
-# Crear un DataFrame de pandas
-df = pd.DataFrame(data, columns=['Code', 'Description', 'Group', 'Value1', 'Value2', 'Value3', 'Value4'])
+# Leer el archivo .DAT
+file_path = 'S_REG005.DAT'
 
-# Mostrar el DataFrame en Streamlit
-st.title('Tabla de Datos del Archivo s_reg005.dat')
-st.dataframe(df)    
+# Supongamos que los datos están separados por comas
+df = pd.read_csv(file_path, delimiter=':')
+
+# Mostrar los datos del DataFrame
+st.write("Datos del archivo S_REG005.DAT:")
+st.write(df)
+
+# Seleccionar columnas para el gráfico
+x_axis = st.selectbox("Selecciona la columna para el eje X", df.columns)
+y_axis = st.selectbox("Selecciona la columna para el eje Y", df.columns)
+
+# Crear un gráfico de dispersión interactivo con Plotly Express
+fig = px.scatter(df, x=x_axis, y=y_axis)
+
+# Mostrar el gráfico en Streamlit
+st.plotly_chart(fig)
