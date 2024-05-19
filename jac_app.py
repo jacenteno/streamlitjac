@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
-from streamlit_option_menu import option_menu
+#from streamlit_extras.stoggle import stoggle
+#from streamlit_option_menu import option_menu
 
 
 st.header('Bienvenidos  al Mundo  🌎 de StreamLit, con el poder de Python')
@@ -11,8 +11,7 @@ if st.button('Globos?'):
 
 
 
-
-# 1. as sidebar menu
+"""# 1. as sidebar menu
 with st.sidebar:
     selected = option_menu("Main Menu", ["Home", 'Settings'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=1)
@@ -37,6 +36,7 @@ selected3
 def on_change(key):
     selection = st.session_state[key]
     st.write(f"Selection changed to {selection}")
+"""
 
 # Título de la aplicación
 st.title('Gráficos con Plotly y Streamlit')
