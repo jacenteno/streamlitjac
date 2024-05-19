@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from streamlit_extras.stoggle import stoggle
+from streamlit_option_menu import option_menu
 
 
 st.header('Bienvenidos  al Mundo  🌎 de StreamLit, con el poder de Python')
@@ -12,6 +13,34 @@ stoggle(
     "Click me!",
     """🥷 Surprise! Here's some additional content""",
 )
+
+
+# 1. as sidebar menu
+with st.sidebar:
+    selected = option_menu("Main Menu", ["Home", 'Settings'], 
+        icons=['house', 'gear'], menu_icon="cast", default_index=1)
+    selected
+
+
+# 3. CSS style definitions
+selected3 = option_menu(None, ["Home", "Upload",  "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+)
+
+selected3
+
+# 5. Add on_change callback
+def on_change(key):
+    selection = st.session_state[key]
+    st.write(f"Selection changed to {selection}")
+
 # Título de la aplicación
 st.title('Gráficos con Plotly y Streamlit')
 
