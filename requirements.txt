@@ -2,4 +2,3 @@ streamlit
 google-cloud-firestore
 pandas
 plotly
-stoggle

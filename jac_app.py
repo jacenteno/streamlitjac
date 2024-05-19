@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from streamlit_extras.stoggle import stoggle
+
 from streamlit_option_menu import option_menu
 
 
@@ -9,10 +9,7 @@ st.header('Bienvenidos  al Mundo  🌎 de StreamLit, con el poder de Python')
 if st.button('Globos?'):
     st.balloons()
 
-stoggle(
-    "Click me!",
-    """🥷 Surprise! Here's some additional content""",
-)
+
 
 
 # 1. as sidebar menu
